@@ -1,205 +1,175 @@
-<html lang="en" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <!-- Meta Data -->
-    <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Signup - LeadsAfrica </title>
-    <meta name="Description" content="--">
-    <meta name="keywords"
-        content="--">
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-    <!-- Main Theme Js -->
-    <script src="/assets/js/authentication-main.js"></script>
-    <!-- Bootstrap Css -->
-    <link id="style" href="/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Style Css -->
-    <link href="/assets/css/styles.min.css" rel="stylesheet">
-    <!-- Icons Css -->
-    <link href="/assets/css/icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/libs/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/assets/libs/choices.js/public/assets/styles/choices.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/assets/pop.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Revix Technology - Sign up">
+    <title>Sign Up - Revix Technology</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FF0000; /* Red background */
+            color: white;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            color: #333;
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .card h3 span.red {
+            color: #FF0000; /* Red color for Revix */
+        }
+
+        .card h3 span.blue {
+            color: #0000FF; /* Blue color for Technology */
+        }
+
+        .card p {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 
-<body class="bg-white" style="background: var(--default-body-bg-color);">
-    <div class="row authentication mx-0 my-auto" >
-        <div class="col-12" style="margin-top: 50px;">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-7 col-sm-8 col-12 px-4">
-                    <div class="card custom-card shadow-sm" style="border-radius: 15px">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <a href="/">
-                                    <img src="/assets/images/Blue2.png" alt="" style="height: 2.2rem" class="authentication-brand desktop-logo">
-                                    <img src="/assets/images/Blue2.png" alt="" style="height: 2.2rem" class="authentication-brand desktop-dark">
-                                </a>
-                            </div>
-                            <p class="h5 fw-semibold mb-2">SIGN UP</p>
-                            <p class="mb-3 text-muted op-7 fw-normal">Create an Account</p>
-                            <div class="response"></div>
-                            <div class="row gy-3 mt-5">
-                                <div class="col-xl-12 mt-0">
-                                    <label for="signin-username" class="form-label text-default">Fullname</label>
-                                    <input class="form-control form-control-lg fullname" type="text" name="fullname" placeholder="Enter your full name">
-                                </div>
-                                <div class="col-xl-12 mt-4">
-                                    <label for="signin-username" class="form-label text-default">Username</label>
-                                    <input class="form-control form-control-lg username" type="text" name="username" placeholder="Enter your username">
-                                </div>
-                                <div class="col-xl-12 mt-4">
-                                    <label for="signin-username" class="form-label text-default">Email address</label>
-                                    <input class="form-control form-control-lg email" type="email" name="email" placeholder="Enter your email address">
-                                </div>
-                                <div class="col-xl-12 mt-4">
-                                    <label for="signin-username" class="form-label text-default">Country</label>
-                                    <select class="country js-example-basic-single" name="country">
-                                        <option>Select your country</option>
-                                    </select>
-                                </div>
-                                <div class="col-xl-12 mt-4">
-                                    <label for="signin-username" class="form-label text-default">Phone number</label>
-                                    <input class="form-control form-control-lg phone" type="tel" name="mobile" placeholder="Enter your mobile number">
-                                </div>
-                                <div class="col-xl-12 mt-4">
-                                    <label for="signin-username" class="form-label text-default">Referral (optional)</label>
-                                    <input class="form-control form-control-lg refUsername" value="" type="text" name="refUsername" placeholder="Enter your referral's username">
-                                </div>
-                                <div class="col-xl-12 mb-3">
-                                    <label for="signin-password" class="form-label text-default d-block">Password
-                                    <div class="input-group">
-                                        <input type="password" class="form-control form-control-lg password" name="password" id="signin-password" placeholder="Enter your password">
-                                        <button class="btn btn-light" type="button" onclick="createpassword('signin-password',this)" id="button-addon2"><i class="ri-eye-off-line align-middle"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 d-grid mt-2">
-                                    <button class="btn btn-primary btn-lg proceed" type="button">
-                                        <span class="btnText">Sign Up</span>
-                                        <span class="spinner-border spinner-border-sm align-middle showSpinner" style="display: none;" role="status"
-                                            aria-hidden="false"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <p class="fs-12 text-muted mt-4">Already have an account? <a href="login" class="text-primary">Sign In</a></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+<body>
+    <div class="card">
+        <h3><span class="red">Revix</span><span class="blue"> Technology</span></h3>
+        <p>Please fill in the details below to create an account.</p>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
             </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter Phone Number" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Cameroon">Cameroon</option>
+                </select>
+            </div>
+            <button type="button" class="btn-primary" onclick="saveData()">Register</button>
+        </form>
+        <div id="successMessage" class="success-message">
+            Registration Successful. <br> Proceed to login....
+        </div>
+        <div class="footer">
+            <p class="small">Already have an account? <a href="login.html">Login</a></p>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Show Password JS -->
-    <script src="/assets/js/show-password.js"></script>
-    <!-- Select2 Cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <!-- Internal Select-2.js -->
-    <script src="/assets/js/select2.js"></script>
-
     <script>
-        $(document).ready(function () {
-            $.ajax({
-                url: '/actions/country.php',
-                type: 'POST',
-                data: { getCountries: "getCountries" },
-                success: function (data) {
-                    const $countrySelect = $('select[name="country"]');
-                    $countrySelect.html(data);
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error fetching countries:', error);
-                }
-            })
-        });
+        function saveData() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const country = document.getElementById('country').value;
 
-        $("form").on("submit", function () {
-            return false;
-        })
-        $(".proceed").on("click", function () {
-            let fullname = $(".fullname").val();
-            let username = $(".username").val();
-            let email = $(".email").val();
-            let phone = $(".phone").val();
-            let country = $(".country").val();
-            let refUsername = $(".refUsername").val();
-            let password = $(".password").val();
-            let $this = $(this);
-            let title, message, status;
-            if (username == "" || username == null) {
-                status = "error";
-                message = "Please enter your username";
-                popup(status, message);
-            }
-            else if (fullname == "" || email == "" || phone == "" || password == "") {
-                status = "error";
-                message = "Please fill in all required fields";
-                popup(status, message);
-            }
-            else if (password.length < 8) {
-                title = "ERROR";
-                icon = "error";
-                message = "Password must be at least 8 characters long";
-                popup(status, message);
-            }
-            else {
-                $.ajax({
-                    url: "actions/formprocess.php",
-                    type: "POST",
-                    data: {
-                        register: "register",
-                        username: username,
-                        fullname: fullname,
-                        email: email,
-                        country: country, 
-                        phone: phone,
-                        refUsername: refUsername,
-                        password: password
-                    },
-                    beforeSend: function () {
-                        $($this).find(".btnText").text("Loading...");
-                        $($this).find(".showSpinner").show();
-                        $($this).attr("disabled", true);
-                    },
-                    success: function (res) {
-                        //console.log("Server Response:", res);
-                        let response = JSON.parse(res);
-                        
-                        $($this).find(".btnText").text("Sign Up");
-                        $($this).find(".showSpinner").hide();
-                        $($this).attr("disabled", false);
+            if (username && email && phone && password && country) {
+                // Save data to localStorage
+                localStorage.setItem('username', username);
+                localStorage.setItem('email', email);
+                localStorage.setItem('phone', phone);
+                localStorage.setItem('password', password);
+                localStorage.setItem('country', country);
 
-                        let icon = response.status;
-                        let message = response.message;
-                        let title = response.status;
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
 
-                        popup(icon, message);
-                        if (icon === "success") {
-                            $($this).find(".btnText").text("Successful...");
-                            $($this).attr("disabled", true);
-                            
-                            setTimeout(() => {
-                                location.href = '/web/'
-                            }, 3000);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        $($this).find(".btnText").text("Try Again");
-                        console.error(xhr.responseText);
-                        $(".response").html("An error occurred. Please try again.");
-                    },            
-                })
+                // Clear the form
+                document.getElementById('signupForm').reset();
+
+                // Hide success message after 3 seconds
+                setTimeout(function() {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+            } else {
+                alert("Please fill in all fields.");
             }
-        })
+        }
     </script>
-
 </body>
+
 </html>
