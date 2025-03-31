@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Revix Technology - Login">
+    <title>Login - Revix Technology</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FF0000; /* Red background */
+            color: white;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #f2f2f2; /* Soft white */
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            text-align: center;
+            color: #333;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .card h3 span.red {
+            color: #FF0000;
+        }
+
+        .card h3 span.blue {
+            color: #0000FF;
+        }
+
+        .card p {
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+
+        .message-box {
+            display: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .error-message {
+            background-color: #FF0000;
+            color: white;
+        }
+
+        .success-message {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .footer {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h3><span class="red">Revix</span><span class="blue"> Technology</span></h3>
+        <p>Please enter your details to log in.</p>
+
+        <div id="messageBox" class="message-box"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="usernameEmail">Username or Email</label>
+                <input type="text" id="usernameEmail" name="usernameEmail" placeholder="Enter Username or Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <button type="button" class="btn-primary" onclick="login()">Login</button>
+        </form>
+
+        <div class="footer">
+            <p>Don't have an account? <a href="index.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const enteredUsernameEmail = document.getElementById('usernameEmail').value;
+            const enteredPassword = document.getElementById('password').value;
+            const storedUsername = localStorage.getItem('username');
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+            const messageBox = document.getElementById('messageBox');
+
+            if ((enteredUsernameEmail === storedUsername || enteredUsernameEmail === storedEmail) && enteredPassword === storedPassword) {
+                messageBox.textContent = "Login Successful! Redirecting...";
+                messageBox.className = "message-box success-message";
+                messageBox.style.display = "block";
+
+                setTimeout(function () {
+                    window.location.href = 'dashboard.html'; // Redirect to dashboard
+                }, 3000);
+            } else {
+                messageBox.textContent = "Invalid Username/Email or Password!";
+                messageBox.className = "message-box error-message";
+                messageBox.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
