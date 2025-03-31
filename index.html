@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Revix Technology - Sign up">
     <title>Sign Up - Revix Technology</title>
     <link rel="shortcut icon" href="favicon.png">
@@ -20,40 +20,36 @@
         }
 
         .card {
-            background-color: #fff;
+            background-color: #f2f2f2; /* Soft white */
             border-radius: 10px;
-            width: 100%;
+            width: 90%;
             max-width: 400px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            text-align: center;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            height: auto;
         }
 
         .card h3 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 24px;
-            text-align: center;
         }
 
         .card h3 span.red {
-            color: #FF0000; /* Red color for Revix */
+            color: #FF0000;
         }
 
         .card h3 span.blue {
-            color: #0000FF; /* Blue color for Technology */
+            color: #0000FF;
         }
 
         .card p {
-            text-align: center;
             font-size: 14px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            text-align: left;
         }
 
         .form-group input,
@@ -63,12 +59,14 @@
             border-radius: 8px;
             border: 1px solid #ccc;
             font-size: 16px;
+            background: #fff;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 5px;
             font-size: 16px;
+            color: #333;
         }
 
         .btn-primary {
@@ -80,27 +78,26 @@
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         .btn-primary:hover {
             background-color: #45a049;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-        }
-
         .success-message {
             display: none;
-            background-color: #FF0000; /* Red Background */
+            background-color: #FF0000;
             color: white;
             padding: 15px;
-            margin-top: 20px;
             border-radius: 8px;
-            text-align: center;
             font-size: 16px;
-            margin-bottom: 20px; /* Added space below success message */
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            margin-top: 10px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -109,8 +106,7 @@
     <div class="card">
         <h3><span class="red">Revix</span><span class="blue"> Technology</span></h3>
         <p>Please fill in the details below to create an account.</p>
-        
-        <!-- Success Message -->
+
         <div id="successMessage" class="success-message">
             Registration Successful. <br> Proceed to login....
         </div>
@@ -145,7 +141,7 @@
         </form>
 
         <div class="footer">
-            <p class="small">Already have an account? <a href="login.html">Login</a></p>
+            <p>Already have an account? <a href="login.html">Login</a></p>
         </div>
     </div>
 
@@ -158,23 +154,19 @@
             const country = document.getElementById('country').value;
 
             if (username && email && phone && password && country) {
-                // Save data to localStorage
                 localStorage.setItem('username', username);
                 localStorage.setItem('email', email);
                 localStorage.setItem('phone', phone);
                 localStorage.setItem('password', password);
                 localStorage.setItem('country', country);
 
-                // Show success message
                 document.getElementById('successMessage').style.display = 'block';
 
-                // Clear the form
                 document.getElementById('signupForm').reset();
 
-                // Hide success message after 3 seconds and redirect to login.html
                 setTimeout(function() {
                     document.getElementById('successMessage').style.display = 'none';
-                    window.location.href = 'login.html'; // Redirect to login page
+                    window.location.href = 'login.html';
                 }, 3000);
             } else {
                 alert("Please fill in all fields.");
