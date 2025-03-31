@@ -161,9 +161,10 @@
                 // Clear the form
                 document.getElementById('signupForm').reset();
 
-                // Hide success message after 3 seconds
+                // Hide success message after 3 seconds and redirect to login.html
                 setTimeout(function() {
                     document.getElementById('successMessage').style.display = 'none';
+                    window.location.href = 'login.html'; // Redirect to login page
                 }, 3000);
             } else {
                 alert("Please fill in all fields.");
