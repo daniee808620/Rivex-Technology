@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revix-Technology Web App - Signup</title>
+    <title>Revix Technology - Signup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +11,11 @@
             padding: 50px;
             background-color: #FF0000; /* Red background */
             color: white;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         h1 {
             color: white;
@@ -19,12 +24,12 @@
             color: white;
         }
         .form-container {
-            display: inline-block;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             color: black;
             width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         input {
             width: 100%;
@@ -46,13 +51,24 @@
         button:hover {
             background-color: #45a049;
         }
+        .success-message {
+            display: none;
+            background-color: #4CAF50; /* Green background for success */
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1>Sign Up for Revix-Technology</h1>
-    <p>Fill in the details to register</p>
-    
     <div class="form-container">
+        <h1>Revix Technology - Sign Up</h1>
+        <p>Fill in the details to register</p>
+        
         <form id="signupForm">
             <input type="text" id="username" placeholder="Username" required>
             <input type="email" id="email" placeholder="Email" required>
@@ -60,6 +76,10 @@
             <input type="password" id="password" placeholder="Password" required>
             <button type="button" onclick="saveData()">Register</button>
         </form>
+        
+        <div id="successMessage" class="success-message">
+            Registration Successful. <br> Proceed to login....
+        </div>
     </div>
 
     <script>
@@ -78,10 +98,16 @@
                 localStorage.setItem('phone', phone);
                 localStorage.setItem('password', password);
 
-                // Show a success message
-                alert("Registration successful! Data saved in local storage.");
-                // Optionally, clear the form
+                // Show the success message
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Optionally, clear the form after success
                 document.getElementById('signupForm').reset();
+
+                // Hide success message after 3 seconds (optional)
+                setTimeout(function() {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
             } else {
                 alert("Please fill in all fields.");
             }
