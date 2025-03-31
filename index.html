@@ -27,6 +27,10 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto;
         }
 
         .card h3 {
@@ -130,10 +134,10 @@
                 </select>
             </div>
             <button type="button" class="btn-primary" onclick="saveData()">Register</button>
+            <div id="successMessage" class="success-message">
+                Registration Successful. <br> Proceed to login....
+            </div>
         </form>
-        <div id="successMessage" class="success-message">
-            Registration Successful. <br> Proceed to login....
-        </div>
         <div class="footer">
             <p class="small">Already have an account? <a href="login.html">Login</a></p>
         </div>
